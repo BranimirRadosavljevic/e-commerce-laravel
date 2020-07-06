@@ -16,7 +16,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'MacBook Pro',
             'slug' => 'macbook-pro',
             'details' => '15 inch, 1TB SSD, 32GB RAM',
-            'price' => 249999,
+            'price' => 92999,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
 
@@ -24,7 +24,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Laptop 2',
             'slug' => 'laptop-2',
             'details' => '15 inch, 1TB SSD, 16GB RAM',
-            'price' => 149999,
+            'price' => 79999,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
 
@@ -32,7 +32,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Laptop 3',
             'slug' => 'laptop-3',
             'details' => '13 inch, 1TB SSD, 16GB RAM',
-            'price' => 149999,
+            'price' => 79999,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
 
@@ -40,7 +40,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Laptop 4',
             'slug' => 'laptop-4',
             'details' => '15 inch, 1TB SSD, 16GB RAM',
-            'price' => 149999,
+            'price' => 79999,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
 
@@ -48,7 +48,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Laptop 5',
             'slug' => 'laptop-5',
             'details' => '15 inch, 1TB SSD, 16GB RAM',
-            'price' => 149999,
+            'price' => 79999,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
 
@@ -56,7 +56,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Laptop 6',
             'slug' => 'laptop-6',
             'details' => '15 inch, 1TB SSD, 16GB RAM',
-            'price' => 149999,
+            'price' => 79999,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
 
@@ -64,7 +64,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Laptop 7',
             'slug' => 'laptop-7',
             'details' => '15 inch, 1TB SSD, 16GB RAM',
-            'price' => 149999,
+            'price' => 79999,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
 
@@ -72,7 +72,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Laptop 8',
             'slug' => 'laptop-8',
             'details' => '15 inch, 1TB SSD, 16GB RAM',
-            'price' => 149999,
+            'price' => 79999,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
 
@@ -80,7 +80,7 @@ class ProductsTableSeeder extends Seeder
             'name' => 'Laptop 9',
             'slug' => 'laptop-9',
             'details' => '15 inch, 1TB SSD, 16GB RAM',
-            'price' => 149999,
+            'price' => 79999,
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
         ]);
     }
