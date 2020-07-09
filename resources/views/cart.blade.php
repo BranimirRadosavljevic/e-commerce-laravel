@@ -92,7 +92,7 @@
 
             <div class="cart-totals">
                 <div class="cart-totals-left">
-                    Shipping is free because we’re awesome like that. Also because that’s additional stuff I don’t feel like figuring out :).
+                    Shipping is free because we’re awesome like that.
                 </div>
 
                 <div class="cart-totals-right">
@@ -110,8 +110,8 @@
             </div> <!-- end cart-totals -->
 
             <div class="cart-buttons">
-                <a href="#" class="button">Continue Shopping</a>
-                <a href="#" class="button-primary">Proceed to Checkout</a>
+                <a href="{{ route('shop.index') }}" class="button">Continue Shopping</a>
+                <a href="{{ route('checkout.index') }}" class="button-primary">Proceed to Checkout</a>
             </div>
 
             @else
