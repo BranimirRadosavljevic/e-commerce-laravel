@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
@@ -38,7 +39,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $duplicates = Cart::search(function($cartItem, $rowId) use ($request){
+        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
             return $cartItem->id === $request->id;
         });
 
@@ -83,7 +84,21 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'quantity' => 'required|numeric|between:1,5'
+        ]);
+
+        if ($validator->fails()) {
+            session()->flash('errors', collect(['Quantity must be between 1 and 5.']));
+
+            return response()->json(['success' => false], 422);
+        }
+
+        Cart::update($id, $request->quantity);
+
+        session()->flash('success_message', 'Quantity updated!');
+
+        return response()->json(['success' => true]);
     }
 
     /**
@@ -108,9 +123,9 @@ class CartController extends Controller
     public function switchToSaveForLater($id)
     {
         $item = Cart::get($id);
-        Cart::remove($id);    
+        Cart::remove($id);
 
-        $duplicates = Cart::instance('saveForLater')->search(function($cartItem, $rowId) use ($id){
+        $duplicates = Cart::instance('saveForLater')->search(function ($cartItem, $rowId) use ($id) {
             return $rowId === $id;
         });
 

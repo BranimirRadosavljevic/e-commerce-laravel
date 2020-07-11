@@ -10,6 +10,7 @@ Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
+Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 Route::post('/cart/switchToSaveForLater/{product}', 'CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
 
@@ -18,4 +19,4 @@ Route::post('/saveForLater/switchToCart/{product}', 'SaveForLaterController@swit
     ->name('saveForLater.switchToCart');
 
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
-Route::view('/thankyou', 'thankyou');
+Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
