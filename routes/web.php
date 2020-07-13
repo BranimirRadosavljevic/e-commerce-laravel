@@ -20,3 +20,8 @@ Route::post('/saveForLater/switchToCart/{product}', 'SaveForLaterController@swit
 
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
 Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
