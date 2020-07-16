@@ -18,10 +18,14 @@ Route::delete('/saveForLater/{product}', 'SaveForLaterController@destroy')->name
 Route::post('/saveForLater/switchToCart/{product}', 'SaveForLaterController@switchToCart')
     ->name('saveForLater.switchToCart');
 
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
 Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
