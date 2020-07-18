@@ -24,6 +24,5 @@ class CategoryTableSeeder extends Seeder
             ['name' => 'Digital Cameras', 'slug' => 'digital-cameras', 'created_at' => $now, 'updated_at' => $now],
             ['name' => 'Appliances', 'slug' => 'appliances', 'created_at' => $now, 'updated_at' => $now],
         ]);
-        
     }
 }
