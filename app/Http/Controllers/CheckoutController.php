@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckoutRequest;
+use App\Mail\OrderPlaced;
 use App\Order;
 use App\OrderProduct;
 use Exception;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -49,6 +51,10 @@ class CheckoutController extends Controller
     {
         try {
             $this->addToOrdersTables($request, null);
+
+            Mail::to($request->email)
+                    ->send(new OrderPlaced);
+
             Cart::instance('default')->destroy();
 
             return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your order has been accepted!');
