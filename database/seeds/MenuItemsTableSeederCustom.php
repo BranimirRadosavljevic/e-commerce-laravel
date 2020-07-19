@@ -39,6 +39,21 @@ class MenuItemsTableSeederCustom extends Seeder
                 'order'      => 1,
             ])->save();
 
+            $menuItem = MenuItem::firstOrNew([
+                'menu_id' => $menu->id,
+                'title' => 'Orders',
+                'url' => '/admin/orders',
+                'route' => null,
+            ]);
+            if (!$menuItem->exists) {
+                $menuItem->fill([
+                    'target' => '_self',
+                    'icon_class' => 'voyager-window-list',
+                    'color' => null,
+                    'parent_id' => null,
+                    'order' => 2,
+                ])->save();
+            }
 
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
@@ -52,7 +67,7 @@ class MenuItemsTableSeederCustom extends Seeder
                     'icon_class' => 'voyager-bag',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 2,
+                    'order'      => 3,
                 ])->save();
             }
 
@@ -68,7 +83,7 @@ class MenuItemsTableSeederCustom extends Seeder
                     'icon_class' => 'voyager-tag',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 3,
+                    'order'      => 4,
                 ])->save();
             }
 
@@ -78,7 +93,7 @@ class MenuItemsTableSeederCustom extends Seeder
                     'icon_class' => 'voyager-dollar',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 4,
+                    'order'      => 5,
                 ])->save();
             }
 
@@ -94,7 +109,7 @@ class MenuItemsTableSeederCustom extends Seeder
                     'icon_class' => 'voyager-categories',
                     'color'      => null,
                     'parent_id'  => null,
-                    'order'      => 5,
+                    'order'      => 6,
                 ])->save();
             }
 
@@ -110,7 +125,7 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-lock',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 6,
+                'order'      => 7,
             ])->save();
 
 
@@ -126,7 +141,7 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-person',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 7,
+                'order'      => 8,
             ])->save();
 
 
@@ -142,7 +157,7 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-images',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 8,
+                'order'      => 9,
             ])->save();
 
 
@@ -158,7 +173,7 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-news',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 9,
+                'order'      => 10,
             ])->save();
 
             $menuItem = MenuItem::firstOrNew([
@@ -173,7 +188,7 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-file-text',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 10,
+                'order'      => 11,
             ])->save();
 
             $toolsMenuItem = MenuItem::firstOrNew([
@@ -187,7 +202,7 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-tools',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 11,
+                'order'      => 12,
             ])->save();
 
 
@@ -203,7 +218,7 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-settings',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 12,
+                'order'      => 13,
             ])->save();
 
 
@@ -219,7 +234,7 @@ class MenuItemsTableSeederCustom extends Seeder
                 'icon_class' => 'voyager-categories',
                 'color'      => null,
                 'parent_id'  => null,
-                'order'      => 13,
+                'order'      => 14,
             ])->save();
 
             $menuItem = MenuItem::firstOrNew([
