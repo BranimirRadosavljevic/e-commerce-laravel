@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckoutRequest;
+use App\Order;
+use App\OrderProduct;
+use Exception;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
@@ -44,7 +47,40 @@ class CheckoutController extends Controller
      */
     public function store(CheckoutRequest $request)
     {
-        
+        try {
+            $this->addToOrdersTables($request, null);
+            Cart::instance('default')->destroy();
+
+            return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your order has been accepted!');
+        } catch (Exception $e) {
+            $this->addToOrdersTables($request, 'Something went wrong! Your order has not been accepted!');
+            return back()->withErrors('Error! ' . 'Your order has not been accepted.');
+        }
+    }
+
+    protected function addToOrdersTables($request, $error)
+    {
+        // Insert into orders table
+        $order = Order::create([
+            'user_id' => auth()->user() ? auth()->user()->id : null,
+            'billing_email' => $request->email,
+            'billing_name' => $request->name,
+            'billing_address' => $request->address,
+            'billing_city' => $request->city,
+            'billing_postalcode' => $request->postalcode,
+            'billing_phone' => $request->phone,
+            'billing_total' => Cart::total(2, '.', ''),
+            'error' => $error,
+        ]);
+
+        // Insert into order_product table
+        foreach (Cart::content() as $item) {
+            OrderProduct::create([
+                'order_id' => $order->id,
+                'product_id' => $item->model->id,
+                'quantity' => $item->qty,
+            ]);
+        }
     }
 
     /**
@@ -91,6 +127,4 @@ class CheckoutController extends Controller
     {
         //
     }
-
-    
 }

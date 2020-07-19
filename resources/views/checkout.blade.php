@@ -31,7 +31,8 @@
     <h1 class="checkout-heading stylish-heading">Checkout</h1>
     <div class="checkout-section">
         <div>
-            <form action="#">
+            <form action="{{route('checkout.store')}}" method="POST">
+                @csrf
                 <h2>Billing Details</h2>
 
                 <div class="form-group">
@@ -82,33 +83,6 @@
 
                 <div class="spacer"></div>
 
-                <h2>Payment Details</h2>
-
-                <div class="form-group">
-                    <label for="name_on_card">Name on Card</label>
-                    <input type="text" class="form-control" id="name_on_card" name="name_on_card" value="">
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" value="">
-                </div>
-
-                <div class="form-group">
-                    <label for="cc-number">Credit Card Number</label>
-                    <input type="text" class="form-control" id="cc-number" name="cc-number" value="">
-                </div>
-
-                <div class="half-form">
-                    <div class="form-group">
-                        <label for="expiry">Expiry</label>
-                        <input type="text" class="form-control" id="expiry" name="expiry" placeholder="MM/DD">
-                    </div>
-                    <div class="form-group">
-                        <label for="cvc">CVC Code</label>
-                        <input type="text" class="form-control" id="cvc" name="cvc" value="">
-                    </div>
-                </div> <!-- end half-form -->
-
                 <div class="spacer"></div>
 
                 <button type="submit" class="button-primary full-width">Complete Order</button>
@@ -148,7 +122,7 @@
                 <div class="checkout-totals-left">
                     Subtotal <br>
                     {{-- Discount (10OFF - 10%) <br> --}}
-                    Tax <br>
+                    PDV <br>
                     <span class="checkout-totals-total">Total</span>
 
                 </div>

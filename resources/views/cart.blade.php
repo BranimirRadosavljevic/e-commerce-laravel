@@ -96,7 +96,7 @@
                 <div class="cart-totals-right">
                     <div>
                         Subtotal <br>
-                        Tax&nbsp;(20%) <br>
+                        PDV&nbsp;(20%) <br>
                         <span class="cart-totals-total">Total</span>
                     </div>
                     <div class="cart-totals-subtotal">
