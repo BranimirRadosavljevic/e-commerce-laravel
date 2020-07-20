@@ -50,10 +50,12 @@ class CheckoutController extends Controller
     public function store(CheckoutRequest $request)
     {
         try {
-            $this->addToOrdersTables($request, null);
+            
+            
+            $order = $this->addToOrdersTables($request, null);
 
             Mail::to($request->email)
-                    ->send(new OrderPlaced);
+                    ->queue(new OrderPlaced($order));
 
             Cart::instance('default')->destroy();
 
@@ -87,6 +89,8 @@ class CheckoutController extends Controller
                 'quantity' => $item->qty,
             ]);
         }
+
+        return $order;
     }
 
     /**

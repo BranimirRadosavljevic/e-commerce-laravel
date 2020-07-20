@@ -32,3 +32,9 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/mail', function() {
+    $order = App\Order::find(78);
+
+    return new App\Mail\OrderPlaced($order);
+});
