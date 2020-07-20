@@ -3,7 +3,7 @@
 @section('title', $product->name)
 
 @section('extra-css')
-
+    <link rel="stylesheet" href="{{asset('css/algolia.css')}}">
 @endsection
 
 @section('content')
@@ -15,7 +15,7 @@
     <i class="fa fa-chevron-right breadcrumb-separator"></i>
     <span>{{ $product->name }}</span>
 @endcomponent
-
+    
     <div class="container">
         @if (session()->has('success_message'))
             <div class="alert alert-success">
@@ -81,6 +81,9 @@
 @endsection
 
 @section('extra-js')
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearchLite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
+<script src="{{asset('js/algolia.js')}}"></script>
 <script>
     (function(){
             const currentImage = document.querySelector('#currentImage');

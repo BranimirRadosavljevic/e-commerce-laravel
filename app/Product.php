@@ -4,10 +4,11 @@ namespace App;
 
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
-    use SearchableTrait;
+    use SearchableTrait, Searchable;
 
     protected $searchable = [
         /**

@@ -9,11 +9,14 @@
     "type": "project",
     "require": {
         "php": "^7.2",
+        "algolia/algoliasearch-client-php": "^2.7",
+        "algolia/scout-extended": "^1.9",
         "bumbummen99/shoppingcart": "^2.9",
         "fideloper/proxy": "~4.0",
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "laravel/framework": "^6.0",
         "laravel/helpers": "^1.2",
+        "laravel/scout": "^8.1",
         "laravel/tinker": "~1.0",
         "nicolaslopezj/searchable": "^1.13",
         "tcg/voyager": "^1.4"
