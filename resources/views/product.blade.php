@@ -8,16 +8,32 @@
 
 @section('content')
 
-<div class="breadcrumbs">
-    <div class="container">
-        <a href="/">Home</a>
-        <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <a href="{{ route('shop.index') }}">Shop</a>
-        <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span>Macbook Pro</span>
-    </div>
-</div> <!-- end breadcrumbs -->
+@component('components.breadcrumbs')
+    <a href="/">Home</a>
+    <i class="fa fa-chevron-right breadcrumb-separator"></i>
+    <span><a href="{{ route('shop.index') }}">Shop</a></span>
+    <i class="fa fa-chevron-right breadcrumb-separator"></i>
+    <span>{{ $product->name }}</span>
+@endcomponent
 
+    <div class="container">
+        @if (session()->has('success_message'))
+            <div class="alert alert-success">
+                {{ session()->get('success_message') }}
+            </div>
+        @endif
+
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+    
 <div class="product-section container">
     <div>
         <div class="product-section-image">
@@ -31,11 +47,11 @@
             </div>
 
             @if ($product->images)
-                @foreach (json_decode($product->images, true) as $image)
-                    <div class="product-section-thumbnail selected">
-                        <img src="{{ productImage($image) }}" alt="product">
-                    </div>
-                @endforeach
+            @foreach (json_decode($product->images, true) as $image)
+            <div class="product-section-thumbnail selected">
+                <img src="{{ productImage($image) }}" alt="product">
+            </div>
+            @endforeach
             @endif
         </div>
     </div>
@@ -65,8 +81,8 @@
 @endsection
 
 @section('extra-js')
-    <script>
-        (function(){
+<script>
+    (function(){
             const currentImage = document.querySelector('#currentImage');
             const images = document.querySelectorAll('.product-section-thumbnail');
             
@@ -87,5 +103,5 @@
             }
         })();
 
-    </script>
+</script>
 @endsection

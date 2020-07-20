@@ -33,6 +33,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/search', 'SearchProductsController@index')->name('search');
+
 Route::get('/mail', function() {
     $order = App\Order::find(78);
 
